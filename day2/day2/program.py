@@ -9,8 +9,7 @@ def process1(lines):
 
     for line in lines:
         ok = True
-        removed_game = line[4:].strip()
-        (game_id, data_string) = removed_game.split(': ')
+        (game_id, data_string) = line[4:].strip().split(': ')
 
         for handful in data_string.split('; '):
             for cube in handful.split(', '):
@@ -25,7 +24,6 @@ def process1(lines):
 
 
 def process2(lines):
-    threshold = {'red': 12, 'green': 13, 'blue': 14}
     result: int = 0
 
     for line in lines:
