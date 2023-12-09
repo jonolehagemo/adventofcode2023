@@ -22,18 +22,18 @@ def process1(lines):
     return reduce(lambda x, y: x + y, map(lambda x: x[2], get_stats(lines)))
 
 
-def flattenList(nestedList):
+def flatten_list(nested_list):
     # check if list is empty
-    if not (bool(nestedList)):
-        return nestedList
+    if not (bool(nested_list)):
+        return nested_list
 
     # to check instance of list is empty or not
-    if isinstance(nestedList[0], list):
+    if isinstance(nested_list[0], list):
         # call function with sublist as argument
-        return flattenList(*nestedList[:1]) + flattenList(nestedList[1:])
+        return flatten_list(*nested_list[:1]) + flatten_list(nested_list[1:])
 
     # call function with sublist as argument
-    return nestedList[:1] + flattenList(nestedList[1:])
+    return nested_list[:1] + flatten_list(nested_list[1:])
 
 
 def get_copies(stats, stat):
@@ -53,7 +53,7 @@ def process2(lines):
     stats = get_stats(lines)
 
     for stat in stats:
-        result += 1 + len(flattenList(get_copies(stats, stat)))
+        result += 1 + len(flatten_list(get_copies(stats, stat)))
 
     return result
 
