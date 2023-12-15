@@ -30,7 +30,7 @@ def get_best_hand(hand: str, deck: str) -> str:
     return ranking[-1][-1]
 
 
-def process(lines, deck):
+def process(lines: list[tuple[str, int]], deck: str) -> int:
     indexed = []
 
     for (hand, bid) in lines:
