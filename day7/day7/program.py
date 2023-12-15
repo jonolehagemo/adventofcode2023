@@ -38,7 +38,7 @@ def process(lines: list[tuple[str, int]], deck: str) -> int:
         indexed.append([get_rank_value(best_hand), get_hand_value(hand, deck), best_hand, hand, bid])
 
     indexed.sort()
-    return sum([index * rank[4] for index, rank in enumerate(indexed, start=1)])
+    return sum([index * rank[-1] for index, rank in enumerate(indexed, start=1)])
 
 
 if __name__ == '__main__':
