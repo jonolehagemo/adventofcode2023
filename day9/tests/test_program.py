@@ -13,7 +13,7 @@ def test_extrapolate():
 
 @pytest.mark.parametrize("index,expected", [
     (-1, 114),
-    (0, -22),
+    (0, 2),
 ])
 def test_process(index, expected):
     assert process(get_input("input1.txt"), index) == expected
