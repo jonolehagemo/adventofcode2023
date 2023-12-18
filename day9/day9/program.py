@@ -3,7 +3,7 @@ from itertools import pairwise
 
 def get_input(filepath: str) -> list[[int]]:
     with open(filepath) as filehandle:
-        return [list(map(lambda x: int(x), line.split(" "))) for line in filehandle.read().split("\n")]
+        return [list(map(int, line.split())) for line in filehandle.read().split("\n")]
 
 
 def extrapolate(values: list[int]) -> list[int]:
